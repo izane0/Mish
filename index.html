@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Michelle 💙</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #581c87 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, rgba(96, 165, 250, 0.8) 0%, rgba(59, 130, 246, 0.4) 50%, transparent 100%);
+            border-radius: 50%;
+            animation: float linear infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) scale(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) scale(1.5) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .screen {
+            display: none;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            animation: screenFadeIn 1s ease-out;
+            z-index: 10;
+        }
+
+        .screen.active {
+            display: flex;
+        }
+
+        @keyframes screenFadeIn {
+            from { 
+                opacity: 0; 
+                transform: scale(0.95) translateY(30px);
+            }
+            to { 
+                opacity: 1; 
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .content {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.2);
+            max-width: 650px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            border: 2px solid rgba(96, 165, 250, 0.3);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .content::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #60a5fa, #3b82f6, #7e22ce, #60a5fa);
+            border-radius: 30px;
+            z-index: -1;
+            opacity: 0.5;
+            filter: blur(20px);
+            animation: borderGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes borderGlow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.8; }
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(135deg, #1e40af, #3b82f6, #7e22ce);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 3em;
+            margin-bottom: 25px;
+            font-weight: 700;
+            animation: titleFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes titleFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(135deg, #1e40af, #7e22ce);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2.3em;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        h3 {
+            color: #1e40af;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: #334155;
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        button {
+            background: linear-gradient(135deg, #3b82f6 0%, #7e22ce 100%);
+            color: white;
+            border: none;
+            padding: 18px 45px;
+            font-size: 1.3em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.6);
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 30px;
+            animation: heartFall linear infinite;
+            z-index: 1;
+            filter: drop-shadow(0 0 10px rgba(96, 165, 250, 0.8));
+        }
+
+        @keyframes heartFall {
+            0% {
+                transform: translateY(-10vh) rotate(0deg) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+                transform: translateY(0) rotate(45deg) scale(1);
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh) rotate(405deg) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        /* NUEVO DISEÑO DE GALERÍA PARA MEMORIAS */
+        .memory-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 20px;
+            max-height: 65vh;
+            overflow-y: auto;
+        }
+
+        .memory-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .memory-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 20px 50px rgba(59, 130, 246, 0.4);
+        }
+
+        .memory-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .memory-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.4s ease;
+        }
+
+        .memory-card:hover .memory-image img {
+            transform: scale(1.1);
+        }
+
+        .memory-image.placeholder::after {
+            content: attr(data-emoji);
+            font-size: 4em;
+        }
+
+        .memory-content {
+            padding: 20px;
+        }
+
+        .memory-content h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #1e40af;
+        }
+
+        .memory-content p {
+            font-size: 0.95em;
+            color: #64748b;
+            margin: 0;
+            line-height: 1.6;
+            display: none;
+        }
+
+        .memory-card.revealed .memory-content p {
+            display: block;
+            animation: textReveal 0.6s ease-out;
+        }
+
+        .memory-card.revealed {
+            background: linear-gradient(135deg, #f0f9ff, #e0e7ff);
+        }
+
+        @keyframes textReveal {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* MAPA DE LA DISTANCIA */
+        .distance-map {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            padding: 40px;
+            border-radius: 20px;
+            color: white;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .distance-visual {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            margin: 30px 0;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .location {
+            text-align: center;
+            animation: locationPulse 2s ease-in-out infinite;
+        }
+
+        .location-icon {
+            font-size: 4em;
+            margin-bottom: 10px;
+        }
+
+        @keyframes locationPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .distance-line {
+            flex: 1;
+            height: 3px;
+            background: linear-gradient(90deg, #60a5fa, #a78bfa, #60a5fa);
+            position: relative;
+            min-width: 100px;
+            animation: distancePulse 2s ease-in-out infinite;
+        }
+
+        @keyframes distancePulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .distance-line::after {
+            content: '💙';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: heartTravel 3s ease-in-out infinite;
+        }
+
+        @keyframes heartTravel {
+            0%, 100% { left: 0%; }
+            50% { left: 100%; }
+        }
+
+        /* CONTADOR DE DÍAS */
+        .days-counter {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 20px 0;
+        }
+
+        .days-number {
+            font-size: 5em;
+            font-weight: 700;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: numberPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes numberPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* RAZONES POR LAS QUE TE AMO */
+        .reasons-list {
+            text-align: left;
+            padding: 20px;
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+
+        .reason-item {
+            background: linear-gradient(135deg, #fef3c7, #ffffff);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            border-left: 5px solid #f59e0b;
+            animation: reasonAppear 0.5s ease-out backwards;
+        }
+
+        .reason-item:nth-child(1) { animation-delay: 0.1s; }
+        .reason-item:nth-child(2) { animation-delay: 0.2s; }
+        .reason-item:nth-child(3) { animation-delay: 0.3s; }
+        .reason-item:nth-child(4) { animation-delay: 0.4s; }
+        .reason-item:nth-child(5) { animation-delay: 0.5s; }
+        .reason-item:nth-child(6) { animation-delay: 0.6s; }
+        .reason-item:nth-child(7) { animation-delay: 0.7s; }
+        .reason-item:nth-child(8) { animation-delay: 0.8s; }
+
+        @keyframes reasonAppear {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .reason-number {
+            font-size: 2em;
+            font-weight: 700;
+            color: #f59e0b;
+            margin-right: 15px;
+            display: inline-block;
+        }
+
+        /* QUIZ MEJORADO */
+        .quiz-container {
+            margin: 20px 0;
+        }
+
+        .quiz-question {
+            background: linear-gradient(135deg, #e0e7ff, #f0f9ff);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .quiz-question.active {
+            display: block;
+            animation: questionSlide 0.5s ease-out;
+        }
+
+        @keyframes questionSlide {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .quiz-option {
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            border: 3px solid #3b82f6;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .quiz-option:hover {
+            background: linear-gradient(135deg, #3b82f6, #7e22ce);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .quiz-option.correct {
+            background: #10b981;
+            color: white;
+            border-color: #10b981;
+            animation: correctPulse 0.5s ease-out;
+        }
+
+        .quiz-option.incorrect {
+            background: #ef4444;
+            color: white;
+            border-color: #ef4444;
+            animation: shake 0.5s ease-out;
+        }
+
+        @keyframes correctPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .quiz-score {
+            font-size: 2em;
+            margin: 20px 0;
+            color: #1e40af;
+            font-weight: 700;
+        }
+
+        /* PROMESAS */
+        .promises-container {
+            text-align: left;
+            padding: 20px;
+        }
+
+        .promise-item {
+            background: linear-gradient(135deg, #fce7f3, #ffffff);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            border-left: 5px solid #ec4899;
+            display: flex;
+            align-items: start;
+            gap: 15px;
+        }
+
+        .promise-icon {
+            font-size: 2em;
+            flex-shrink: 0;
+        }
+
+        /* CARTA FINAL */
+        .letter {
+            background: linear-gradient(to bottom, #fffbeb 0%, #fef3c7 50%, #ffffff 100%);
+            padding: 45px;
+            border-radius: 20px;
+            box-shadow: inset 0 0 30px rgba(59, 130, 246, 0.15);
+            text-align: left;
+            border: 2px solid #fbbf24;
+        }
+
+        .letter p {
+            font-size: 1.15em;
+            color: #1e293b;
+            margin-bottom: 25px;
+            font-family: 'Georgia', serif;
+            line-height: 2;
+            font-weight: 400;
+        }
+
+        .signature {
+            text-align: right;
+            font-style: italic;
+            margin-top: 40px;
+            font-size: 1.2em;
+            color: #1e40af;
+        }
+
+        .music-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #3b82f6, #7e22ce);
+            border: none;
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            font-size: 2em;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.6);
+            z-index: 100;
+            transition: all 0.4s;
+            animation: musicPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes musicPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .music-toggle:hover {
+            transform: scale(1.15) rotate(20deg);
+        }
+
+        .next-btn {
+            margin-top: 25px;
+            display: none;
+        }
+
+        .next-btn.show {
+            display: inline-block;
+            animation: buttonAppear 0.5s ease-out;
+        }
+
+        @keyframes buttonAppear {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(59, 130, 246, 0.2);
+            border-radius: 10px;
+            margin-bottom: 25px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, #3b82f6, #7e22ce);
+            transition: width 1s ease;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+
+    <!-- Pantalla 1: Bienvenida -->
+    <div class="screen active" id="screen1">
+        <div class="content">
+            <h1>Bienvenida, Michelle 💙</h1>
+            <p>A pesar de la distancia, siempre estás en mi corazón.</p>
+            <p style="font-size: 1em; color: #64748b; font-weight: 300;">Dale click al boton para ver la sorpresa</p>
+            <button onclick="goToScreen(2)">Ver sorpresa 🎁</button>
+        </div>
+    </div>
+
+    <!-- Pantalla 2: Galería de Memorias -->
+ <div class="screen" id="screen2">
+  <div class="content" style="max-width: 900px;">
+    <div class="progress-bar">
+      <div class="progress" style="width: 12.5%"></div>
+    </div>
+    <h2>Nuestras Memorias 📸</h2>
+    <p style="color: #64748b;">Haz clic en cada tarjeta para descubrir el momento...</p>
+
+    <div class="memory-gallery">
+      <div class="memory-card" onclick="revealMemory(this)">
+        <div class="memory-image">
+          <img src="img/Conocernos.jpeg" alt="Momento 1">
+        </div>
+        <div class="memory-content">
+          <h3>Nuestro primer mensaje</h3>
+          <p>Aqui fue cuando me escribiste el primer mensaje, nunca me habria imaginado todo lo que ha pasado despues JAJAJ.</p>
+        </div>
+      </div>
+
+      <div class="memory-card" onclick="revealMemory(this)">
+        <div class="memory-image">
+          <img src="img/Pedir-Salir.jpeg" alt="Momento 2">
+        </div>
+        <div class="memory-content">
+          <h3>Cuando te pedi salir</h3>
+          <p>Aqui estaba super nervioso, pero luego me puse super feliz y emocionado cuando dijiste que si.</p>
+        </div>
+      </div>
+
+      <div class="memory-card" onclick="revealMemory(this)">
+        <div class="memory-image">
+          <img src="img/Roblox-Cita.png" alt="Momento 3">
+        </div>
+        <div class="memory-content">
+          <h3>Cuando hicimos una cita en Roblox</h3>
+          <p>Me gusto mucho porque te senti cerca de mi</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- el botón siempre visible -->
+    <button class="next-btn show" onclick="goToScreen(3)" style="margin-top: 30px;">Continuar ➜</button>
+  </div>
+</div>
+
+<script>
+  function revealMemory(card) {
+    card.classList.toggle("revealed");
+    // aquí puedes poner animaciones o efectos si quieres
+  }
+</script>
+
+
+    <!-- Pantalla 3: Mapa de la Distancia -->
+    <div class="screen" id="screen3">
+        <div class="content">
+            <div class="progress-bar"><div class="progress" style="width: 25%"></div></div>
+            <h2>Nuestra Distancia 🌍</h2>
+            <div class="distance-map">
+                <div class="distance-visual">
+                    <div class="location">
+                        <div class="location-icon">📍</div>
+                        <p style="color: white; margin: 0;">Barcelona</p>
+                    </div>
+                    <div class="distance-line"></div>
+                    <div class="location">
+                        <div class="location-icon">📍</div>
+                        <p style="color: white; margin: 0;">Melilla</p>
+                    </div>
+                </div>
+                <h3 style="color: white; margin: 20px 0;">760 kilómetros</h3>
+                <p style="color: #bfdbfe; margin: 0;">Pero ninguna distancia es suficiente para separarnos 💙</p>
+            </div>
+            <button onclick="goToScreen(4)">Continuar ➜</button>
+        </div>
+    </div>
+
+    <!-- Pantalla 4: Contador de Días -->
+    <div class="screen" id="screen4">
+        <div class="content">
+            <div class="progress-bar"><div class="progress" style="width: 37.5%"></div></div>
+            <h2>Nuestro Tiempo Juntos ⏰</h2>
+            <div class="days-counter">
+                <div class="days-number" id="daysCounter">67</div>
+                <p style="color: #92400e; font-size: 1.3em; margin: 0;">67 días desde que empezamos</p>
+                <p style="color: #92400e; font-size: 0.9em; margin-top: 10px;">[Fecha de inicio: 5/09/2025]</p>
+            </div>
+            <p>Y cada día contigo, aunque sea a través de una pantalla, me haces feliz.</p>
+            <button onclick="goToScreen(5)">Continuar ➜</button>
+        </div>
+    </div>
+
+    <!-- Pantalla 5: Razones por las que te amo -->
+    <div class="screen" id="screen5">
+        <div class="content" style="max-width: 750px;">
+            <div class="progress-bar"><div class="progress" style="width: 50%"></div></div>
+            <h2>Razones por las que te amo 💙</h2>
+            <div class="reasons-list">
+                <div class="reason-item">
+                    <span class="reason-number">1.</span>
+                    <span>Eres hermosa, preciosa y guapa.</span>
+                </div>
+                <div class="reason-item">
+                    <span class="reason-number">2.</span>
+                    <span>Eres mi lugar seguro, donde puedo ser yo mismo</span>
+                </div>
+                <div class="reason-item">
+                    <span class="reason-number">3.</span>
+                    <span>Amo como me tratas y como eres</span>
+                </div>
+                <div class="reason-item">
+                    <span class="reason-number">4.</span>
+                    <span>Amo hacer llamada contigo.</span>
+                </div>
+                <div class="reason-item">
+                    <span class="reason-number">5.</span>
+                    <span>Eres la novia perfecta.</span>
+                </div>
+                <div class="reason-item">
+                    <span class="reason-number">6.</span>
+                    <span>Eres mi felicidad absoluta</span>
+                </div>
+                <div class="reason-item">
+                    <span class="reason-number">7.</span>
+                    <span>Simplemente porque eres tú</span>
+                </div>
+            </div>
+            <button onclick="goToScreen(6)">Continuar ➜</button>
+        </div>
+    </div>
+
+    <!-- Pantalla 6: Quiz de 5 Preguntas -->
+    <div class="screen" id="screen6">
+        <div class="content">
+            <div class="progress-bar"><div class="progress" style="width: 62.5%"></div></div>
+            <h2>¿Cuánto recuerdas? 💭</h2>
+            <div class="quiz-container" id="quizContainer">
+                <!-- Pregunta 1 -->
+                <div class="quiz-question active" data-question="1">
+                    <h3>[PREGUNTA 1]</h3>
+                    <p style="font-size: 0.9em; color: #64748b;">Cuando fue nuestra primera llamada de WhatsApp?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="answerQuestion(this, false)">30 de Octubre</div>
+                        <div class="quiz-option" onclick="answerQuestion(this, true)">13 de Octubre</div>
+                        <div class="quiz-option" onclick="answerQuestion(this, false)">15 de Octubre</div>
+                    </div>
+                </div>
+
+                <!-- Pregunta 2 -->
+                <div class="quiz-question" data-question="2">
+                    <h3>[PREGUNTA 2]</h3>
+                    <p style="font-size: 0.9em; color: #64748b;">Que corazon usamos?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="answerQuestion(this, false)">💛</div>
+                        <div class="quiz-option" onclick="answerQuestion(this, false)">💚</div>
+                        <div class="quiz-option" onclick="answerQuestion(this, true)">💙</div>
+                    </div>
+                </div>
+
+                <!-- Pregunta 3 -->
+                <div class="quiz-question" data-question="3">
+                    <h3>[PREGUNTA 3]</h3>
+                    <p style="font-size: 0.9em; color: #64748b;">Que apodos te digo?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="answerQuestion(this, false)">Mi niña</div>
+                        <div class="quiz-option" onclick="answerQuestion(this, false)">Mi amor</div>
+                        <div class="quiz-option" onclick="answerQuestion(this, true)">Las dos son correctas</div>
+                    </div>
+                </div>
+
+                <!-- Pregunta 4 -->
+                <div class="quiz-question" data-question="4">
+                    <h3>[PREGUNTA 4]</h3>
+                    <p style="font-size: 0.9em; color: #64748b;">Cual es mi grupo de música favorito?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="answerQuestion(this, false)">Arctic Monkeys</div>
+                        <div class="quiz-option" onclick="answerQuestion(this, true)">Good Kid</div>
+                        <div class="quiz-option" onclick="answerQuestion(this, false)">Ninguna de las dos</div>
+                    </div>
+                </div>
+
+                <!-- Pregunta 5 -->
+                <div class="quiz-question" data-question="5">
+                    <h3>[PREGUNTA 5]</h3>
+                    <p style="font-size: 0.9em; color: #64748b;">Cual es mi comida favorita?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="answerQuestion(this, false)">Pizza</div>
+                        <div class="quiz-option" onclick="answerQuestion(this, false)">Hamburguesa</div>
+                        <div class="quiz-option" onclick="answerQuestion(this, true)">Tú 💙</div>
+                    </div>
+                </div>
+            </div>
+            <div class="quiz-score" id="quizScore" style="display: none;"></div>
+            <button class="next-btn" id="nextBtn6" onclick="goToScreen(7)">Continuar ➜</button>
+        </div>
+    </div>
+
+    <!-- Pantalla 7: Promesas -->
+    <div class="screen" id="screen7">
+        <div class="content" style="max-width: 750px;">
+            <div class="progress-bar"><div class="progress" style="width: 75%"></div></div>
+            <h2>Mis Promesas para Ti 🤝</h2>
+            <p style="color: #64748b;">Porque aunque estemos lejos, estas promesas siempre estarán contigo...</p>
+            <div class="promises-container">
+                <div class="promise-item">
+                    <div class="promise-icon">💬</div>
+                    <div>
+                        <h3 style="margin: 0 0 10px 0;">Comunicación Constante</h3>
+                        <p style="font-size: 0.95em; margin: 0; color: #64748b;">Prometo que siempre te voy a dar los buenos dias, las buenas noches y contarte todo.</p>
+                    </div>
+                </div>
+                <div class="promise-item">
+                    <div class="promise-icon">✈️</div>
+                    <div>
+                        <h3 style="margin: 0 0 10px 0;">Nuestro Futuro Juntos</h3>
+                        <p style="font-size: 0.95em; margin: 0; color: #64748b;">Prometo trabajar cada día para que esta distancia sea temporal y podamos construir nuestro futuro juntos</p>
+                    </div>
+                </div>
+                <div class="promise-item">
+                    <div class="promise-icon">🎮</div>
+                    <div>
+                        <h3 style="margin: 0 0 10px 0;">Crear Momentos Especiales</h3>
+                        <p style="font-size: 0.95em; margin: 0; color: #64748b;">Prometo seguir creando momentos especiales contigo, aunque sea virtualmente</p>
+                    </div>
+                </div>
+                <div class="promise-item">
+                    <div class="promise-icon">💙</div>
+                    <div>
+                        <h3 style="margin: 0 0 10px 0;">Amor Incondicional</h3>
+                        <p style="font-size: 0.95em; margin: 0; color: #64748b;">Prometo darte amor cada dia, aunque sea a traves de una pantalla</p>
+                    </div>
+                </div>
+                <div class="promise-item">
+                    <div class="promise-icon">🌟</div>
+                    <div>
+                        <h3 style="margin: 0 0 10px 0;">Apoyo Incondicional</h3>
+                        <p style="font-size: 0.95em; margin: 0; color: #64748b;">Prometo estar ahí para ti, celebrar tus logros, ayudarte cuando estes mal y ser tu apoyo siempre</p>
+                    </div>
+                </div>
+            </div>
+            <button onclick="goToScreen(8)">Continuar ➜</button>
+        </div>
+    </div>
+
+    <!-- Pantalla 8: Carta Final -->
+    <div class="screen" id="screen8">
+        <div class="content" style="max-width: 850px;">
+            <div class="progress-bar"><div class="progress" style="width: 100%"></div></div>
+            <h2>Para ti, Michelle 💌</h2>
+            <div class="letter">
+                <p>Muchas felicidades mi niña bonita</p>
+                
+                <p>Solo me queda decirte gracias, gracias por estar siempre a mi lado, incluso cuando la distancia nos separa, por apoyarme cuando estoy mal y alegrarme los dias. Cuando me conociste la vdd estaba en el peor momento de mi vida, me sentia solo y mal todo el dia y sentia que ya nada podia solucionar eso, hasta que llegaste tu, mi vida, y me iluminaste el camino, gracias a ti estoy aqui ahora mismo tu eres mi motivacion para seguir adelante y estudiar para poder tener un futuro juntos y que nuestros hijos sean felices. Quiero que sepas que siempre SIEMPRE voy a estar para ti para lo que necesites pq eres mi niña preciosa y te voy a cuidar siempre.</p>
+                
+                <p>De vdd q gracias mi niña preciosa eres la mejor persona que he conocido y conocere en toda mi vida, y quiero quedarme contigo toda mi vida, formar una familia juntos, casarnos y vivir felices los dos. Lo siento por a veces darte malos momentos o hacerte algo malo, no te lo mereces mi vida aun ns ni cmo alguien como tu esta conmigo JAJAJ. He tenido MUCHISIMA suerte de conocerte la vdd antes no creia en el amor pensaba q iba a estar solo toda mi vida hasta que llegaste tu y mandaste todo eso a la mrd JAJAJ.</p>
+                
+                <p>En fin, no lo quiero hacer tan largo mi vida, muchas felicidades pasatelo genial y espero q disfrutes de esta sorpresa q llevo mas de 1 mes haciendo solo para ti mi vida. T AMO MUCHO ERES LA MEJOR Y ESTOY MUY ORGULLOSO DE TI.</p>
+                
+                <p class="signature">Con todo mi amor, <br>Izan 💙</p>
+            </div>
+            <button onclick="location.reload()" style="margin-top: 25px;">Volver al inicio 🔄</button>
+        </div>
+    </div>
+
+    <button class="music-toggle" onclick="toggleMusic()" id="musicBtn">🎵</button>
+
+    <script>
+        // Crear partículas
+        function createParticles() {
+            const container = document.getElementById('particles');
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+                    const size = Math.random() * 150 + 50;
+                    particle.style.width = size + 'px';
+                    particle.style.height = size + 'px';
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.animationDuration = (Math.random() * 15 + 10) + 's';
+                    particle.style.animationDelay = (Math.random() * 5) + 's';
+                    container.appendChild(particle);
+                }, i * 200);
+            }
+        }
+
+        createParticles();
+
+        // Crear corazones
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '💙';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 4 + 3) + 's';
+            heart.style.fontSize = (Math.random() * 20 + 20) + 'px';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 7000);
+        }
+
+        setInterval(createHeart, 400);
+
+        // Navegación
+        function goToScreen(screenNum) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            document.getElementById('screen' + screenNum).classList.add('active');
+        }
+
+        // Revelar memorias
+        // Revelar memorias
+function revealMemory(element) {
+    element.classList.toggle('revealed');
+}
+
+        // Quiz
+        let currentQuestion = 1;
+        let correctAnswers = 0;
+
+        function answerQuestion(element, isCorrect) {
+            const options = element.parentElement.querySelectorAll('.quiz-option');
+            options.forEach(opt => opt.style.pointerEvents = 'none');
+
+            if (isCorrect) {
+                element.classList.add('correct');
+                correctAnswers++;
+            } else {
+                element.classList.add('incorrect');
+                options.forEach(opt => {
+                    if (opt.onclick.toString().includes('true')) {
+                        opt.classList.add('correct');
+                    }
+                });
+            }
+
+            setTimeout(() => {
+                if (currentQuestion < 5) {
+                    document.querySelector(`.quiz-question[data-question="${currentQuestion}"]`).classList.remove('active');
+                    currentQuestion++;
+                    document.querySelector(`.quiz-question[data-question="${currentQuestion}"]`).classList.add('active');
+                } else {
+                    showQuizResults();
+                }
+            }, 1500);
+        }
+
+        function showQuizResults() {
+            document.getElementById('quizContainer').style.display = 'none';
+            const scoreDiv = document.getElementById('quizScore');
+            scoreDiv.style.display = 'block';
+            
+            let message = '';
+            if (correctAnswers === 5) {
+                message = '🌟 ¡Perfecto! 5/5 - ¡Me conoces mejor que nadie!';
+            } else if (correctAnswers >= 3) {
+                message = `💙 ¡Muy bien! ${correctAnswers}/5 - Eres increíble`;
+            } else {
+                message = `💭 ${correctAnswers}/5 - ¡Tenemos que hacer más recuerdos juntos!`;
+            }
+            
+            scoreDiv.innerHTML = message;
+            document.getElementById('nextBtn6').classList.add('show');
+        }
+
+        // Música
+        let musicPlaying = false;
+        function toggleMusic() {
+            const btn = document.getElementById('musicBtn');
+            musicPlaying = !musicPlaying;
+            btn.innerHTML = musicPlaying ? '🔊' : '🎵';
+            // Aquí puedes agregar: const audio = new Audio('cancion.mp3'); 
+            // if (musicPlaying) { audio.play(); audio.loop = true; } else audio.pause();
+        }
+    </script>
+</body>
+</html>
